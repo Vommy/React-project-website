@@ -1,14 +1,23 @@
 import '../css/App.css';
-import Button from './Button.js';
-//import data from '../data.json';
 import NavBar from './NavBar';
 import ListGroup from './ListGroup.js';
+import Form from './Form.js';
 import { useState, useEffect, React } from 'react';
 import {without } from "lodash"
 
 function App() {
 
   const[listItems, setListItems] = useState([]);
+
+  /**
+   * Adds a project to the list of projects by creating a new array of projects through array destructuring.
+   * @param {*} project The project to add.
+   */
+  const addProject = (project) =>{
+    project.projectIdentifier = listItems.length + 1;
+    const tempProjects = [...listItems, project];
+    setListItems(tempProjects);
+  }
 
   /**
    * Get the data from the data.json file.
@@ -26,31 +35,63 @@ function App() {
       }
       getData();
     }, []
-    )
+  )
+
+  /**
+   * Sorts the items either by date or by name in either ascending or descending order.
+   * @param {string} type The type to sort by. Either 'name or 'date'.
+   * @param {int} order 1 For descending order, 0 for ascending order.
+   */
+  const sortItems = (type, order) => {
+    let tempProjects
+    if(type === 'name'){
+      if(order === 1){
+        tempProjects = [...listItems].sort((b,a) => a.projectName.localeCompare(b.projectName));
+      }
+      else{
+        tempProjects = [...listItems].sort((b,a) => b.projectName.localeCompare(a.projectName));
+      }
+    }
+    else{
+      if(order === 1){
+        tempProjects = [...listItems].sort((b,a) => new Date(a.start_date) - new Date(b.start_date));
+      }
+      else{
+        tempProjects = [...listItems].sort((b,a) => new Date(b.start_date) - new Date(a.start_date));
+      }
+    }
+    console.log(tempProjects);
+    setListItems(tempProjects);
+  }
 
      /**
-      * Deletes an item from this list group.
+      * Deletes an item from the list of projects and sets its state.
       * @param {*} item The item to remove.
       */
-     const deleteListItem = (item) => {
-         const tempProject = without(listItems, item);
-         setListItems(tempProject);
-     }
+  const deleteListItem = (item) => {
+    const tempProject = without(listItems, item);
+    setListItems(tempProject);
+  }
  
      /**
       * Shows more info about a project as an alert message.
       * @param {*} item 
       */
-     const showMoreInfo = (item) => {
-         alert("Project Start Date: " + item.start_date + "\nProject End Date: " + item.end_date);
-     }
+  const showMoreInfo = (item) => {
+    alert(item.description);
+  }
 
+  /**
+   * The application to return. 
+   */
   return (
     <>
       <NavBar 
         navTitle={"Projects"} 
         dropFilter={"Filter by"}
-        items={listItems}/>
+        items={listItems}
+        sortItems={sortItems}
+        addProject={addProject}/>
       <ListGroup 
       items={listItems}
       deleteListItem={deleteListItem}

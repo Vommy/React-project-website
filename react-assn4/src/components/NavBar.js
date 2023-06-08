@@ -1,13 +1,17 @@
 import {React} from 'react';
 import  Button  from "./Button";
-import { useState } from 'react';
+import Form from "./Form";
 
 function NavBar(props){
 
+    /**
+     * Returns a navigation bar with a filter dropdown and the add project form. 
+     * Based on Bootstrap's navigation component.
+     */
     return(
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-            <a className="navbar-brand" href="#">{props.navTitle}</a>
+            <a className="navbar-brand" href="test">{props.navTitle}</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
@@ -18,12 +22,13 @@ function NavBar(props){
                     {props.dropFilter}
                 </button>
                 <ul className="dropdown-menu">
-                    <li><Button buttonText="A-Z" buttonColor="primary"/></li>
-                    <li><Button buttonText="Z-A" buttonColor="primary" /></li>
-                    <li><Button buttonText="Ascending Dates"/></li>
-                    <li><Button buttonText="Descending Dates"/></li>
+                    <li><Button buttonText="A-Z" onClick={() => props.sortItems('name', 0)}/></li>
+                    <li><Button buttonText="Z-A" onClick={() => props.sortItems('name', 1)}/></li>
+                    <li><Button buttonText="Ascending Dates" onClick={() => props.sortItems('date', 1)}/></li>
+                    <li><Button buttonText="Descending Dates" onClick={() => props.sortItems('date', 0)}/></li>
                 </ul>
                 </div>
+                <Form addProject={props.addProject}/>
             </ul>
             <form className="d-flex" role="search">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
