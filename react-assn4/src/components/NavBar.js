@@ -1,6 +1,9 @@
 import {React} from 'react';
 import  Button  from "./Button";
 import Form from "./Form";
+/**
+ * @author Veren Villegas 1574646
+ */
 
 function NavBar(props){
 

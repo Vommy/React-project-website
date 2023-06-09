@@ -1,4 +1,7 @@
 import Button from "./Button";
+/**
+ * @author Veren Villegas 1574646
+ */
 
 /**
  * A component for a list of items to display.

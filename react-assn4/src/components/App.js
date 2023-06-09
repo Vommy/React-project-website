@@ -4,7 +4,9 @@ import ListGroup from './ListGroup.js';
 import Form from './Form.js';
 import { useState, useEffect, React } from 'react';
 import {without } from "lodash"
-
+/**
+ * @author Veren Villegas 1574646
+ */
 function App() {
 
   const[listItems, setListItems] = useState([]);

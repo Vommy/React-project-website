@@ -1,4 +1,7 @@
 import { React } from 'react';
+/**
+ * @author Veren Villegas 1574646
+ */
 
 /**
  * Defines a reusable button component with different text, colors and onclicks.
