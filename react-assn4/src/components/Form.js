@@ -8,6 +8,7 @@ function Form(props){
 
     /**
      * Intializing the project state for this form component.
+     * Sapna, J.(2023). Lecture 1 Example Code - Event Handling & Forms[Lecture Handout Code]. Moodle. https://elearn.waikato.ac.nz/mod/folder/view.php?id=1657282
      */
     const [project, setProject] = useState({
         projectName: '',

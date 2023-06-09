@@ -13,6 +13,7 @@ function App() {
 
   /**
    * Adds a project to the list of projects by creating a new array of projects through array destructuring.
+   * Sapna, J.(2023). Lecture 1 Example Code - Event Handling & Forms[Lecture Handout Code]. Moodle. https://elearn.waikato.ac.nz/mod/folder/view.php?id=1657282
    * @param {*} project The project to add.
    */
   const addProject = (project) =>{
@@ -23,6 +24,7 @@ function App() {
 
   /**
    * Get the data from the data.json file.
+   * Sapna, J.(2023). Lecture 1 Example Code - Event Handling & Forms[Lecture Handout Code]. Moodle. https://elearn.waikato.ac.nz/mod/folder/view.php?id=1657282
    */
   useEffect(() => {
     const getData = async() => {
@@ -68,6 +70,7 @@ function App() {
 
      /**
       * Deletes an item from the list of projects and sets its state.
+      * Sapna, J.(2023). Lecture 1 Example Code - Event Handling & Forms[Lecture Handout Code]. Moodle. https://elearn.waikato.ac.nz/mod/folder/view.php?id=1657282
       * @param {*} item The item to remove.
       */
   const deleteListItem = (item) => {

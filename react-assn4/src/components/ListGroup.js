@@ -21,7 +21,7 @@ function ListGroup(props){
                     <div className="card-body">
                     <h5 className="card-title">{item.projectName}</h5>
                     <p className="card-text">Start Date: {item.start_date}</p>
-                    <p className="card-text">Start Date: {item.end_date}</p>
+                    <p className="card-text">End Date: {item.end_date}</p>
                     <Button buttonText="Delete" buttonColor="danger" onClick={() => props.deleteListItem(item)}/>
                     <Button buttonText="Learn More" buttonColor="primary" onClick={() => props.showMoreInfo(item)}/>
                     </div>
